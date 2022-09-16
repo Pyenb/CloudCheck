@@ -1,4 +1,27 @@
-import requests, ipaddress, dns.resolver
+from ast import arg
+import requests, ipaddress, dns.resolver, argparse, sys
+from urllib.parse import urlparse
+
+
+parser = argparse.ArgumentParser(description='Check if a given server / or list of servers uses the Cloudflare service.')
+parser.add_argument('-u', '--url', type=str, help='The domain to check')
+parser.add_argument('-f', '--file', help='Load a list of domains from a file.')
+args = parser.parse_args(args=None if sys.argv[1:] else ['--help'])
+
+urls = []
+def precheck(domains):
+    for url in domains:
+        url = urlparse(url)
+        if url.scheme != '':
+            urls.append(url.netloc.strip())
+        else:
+            urls.append(url.path.strip())
+
+if args.file:
+    with open(args.file) as f:
+        precheck(f.readlines())
+elif args.url:
+    precheck([args.url])
 
 def get_cloudflare_ranges():
     try:
@@ -39,15 +62,19 @@ def is_valid_domain(domain):
     except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer):
         return False
 
+
 def uses_cloudflare(domain):
     if is_valid_domain(domain):
         answers = dns.resolver.resolve(domain, 'A')
-
         for answer in answers:
             if is_cloudflare_ip(answer):
                 return True
-        return False
+        return False 
     else:
-        return 'Invalid domain' 
+        return False
 
-print(uses_cloudflare('redditthrowaway.xyz'))
+for url in urls:
+    if uses_cloudflare(url):
+        print(f'{url} uses Cloudflare')
+    else:
+        print(f'{url} does not use Cloudflare')
