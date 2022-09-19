@@ -2,7 +2,6 @@ from ast import arg
 import requests, ipaddress, dns.resolver, argparse, sys
 from urllib.parse import urlparse
 
-
 parser = argparse.ArgumentParser(description='Check if a given server / or list of servers uses the Cloudflare service.')
 parser.add_argument('-u', '--url', type=str, help='The domain to check')
 parser.add_argument('-f', '--file', help='Load a list of domains from a file.')
@@ -45,7 +44,7 @@ def get_cloudflare_ranges():
         "197.234.240.0/22",
         "198.41.128.0/17"
         ]
-        return [fallback]
+        return fallback
 
 cloudflare_subnets = [ipaddress.ip_network(ip_range) for ip_range in get_cloudflare_ranges()]
 
