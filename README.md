@@ -1,6 +1,6 @@
 # CloudCheck
 
-CloudCheck is a simple program that checks if a given website, or list of websites, uses the cloudflare service or not.
+CloudCheck is a simple program that checks if a given website, or list of websites, use the cloudflare service or not.
 
 CloudCheck is inspired by [christophetd's](https://github.com/christophetd) program [CloudFlair](https://github.com/christophetd/CloudFlair).
 
