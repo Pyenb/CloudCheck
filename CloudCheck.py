@@ -1,4 +1,3 @@
-from ast import arg
 import requests, ipaddress, dns.resolver, argparse, sys
 from urllib.parse import urlparse
 
