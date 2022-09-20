@@ -18,17 +18,17 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the pac
 Use `git clone` to download the repository to your local machine:
 
 ```bash
-> git clone https://github.com/Anonyvius/CloudCheck
+> git clone https://github.com/Anonyvius/cloudcheck
 ```
 
 ## Usage
 
 Open your download location and execute the script from a console window.
 
-Execute the `CloudCheck.py`
+Execute the `cloudcheck.py`
 
 ```bash
-> python CloudCheck.py [-h] [-u URL] [-f FILE]
+> python cloudcheck.py [-h] [-u URL] [-f FILE]
 ```
 `URL` defines the website adress that you want to scan.\
 `FILE` defines a file that you want to read and check if the given websites use cloudflare.
@@ -38,7 +38,7 @@ The program will automatically remove anything before or after the URL, so `http
 ### Example with a single URL:
 
 ```bash
-> python CloudCheck.py -u google.de
+> python cloudcheck.py -u google.de
 ```
 ### output:
 
@@ -50,7 +50,7 @@ The program will automatically remove anything before or after the URL, so `http
 The file has to be in a readable format (preferred `.txt`) and the websites need to be listed one below another. 
 
 ```bash
-> python CloudCheck.py -f websites.txt
+> python cloudcheck.py -f websites.txt
 ```
 ### output:
 
