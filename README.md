@@ -1,8 +1,7 @@
 # CloudCheck
 
 CloudCheck is a simple program that checks if a given website, or list of websites, use the cloudflare service or not.
-
-CloudCheck is inspired by [christophetd's](https://github.com/christophetd) program [CloudFlair](https://github.com/christophetd/CloudFlair).
+###### CloudCheck is inspired by [christophetd's](https://github.com/christophetd) program [CloudFlair](https://github.com/christophetd/CloudFlair).
 
 ## Prerequisites
 
@@ -34,6 +33,8 @@ Execute the `CloudCheck.py`
 `URL` defines the website adress that you want to scan.\
 `FILE` defines a file that you want to read and check if the given websites use cloudflare.
 
+The program will automatically remove anything before or after the URL, so `https://google.de/search?=abc` would become `google.de`
+
 ### Example with a single URL:
 
 ```bash
@@ -46,7 +47,7 @@ Execute the `CloudCheck.py`
 ```
 
 ### Example with a file:
-The file has to be in a readable format (preferred `.txt`) and the websites need to be listed one below another.
+The file has to be in a readable format (preferred `.txt`) and the websites need to be listed one below another. 
 
 ```bash
 > python CloudCheck.py -f websites.txt
