@@ -52,7 +52,7 @@ The program will automatically remove anything before or after the URL, so `http
 ```bash
 > python cloudcheck.py -u google.de
 
-google.de does not use Cloudflare
+[!] google.de does not use Cloudflare
 ```
 
 ### Example with a file:
@@ -61,10 +61,10 @@ The file has to be in a readable format (preferred `.txt`) and the websites need
 ```bash
 > python cloudcheck.py -f websites.txt
 
-google.de does not use Cloudflare
-abc.xyz does not use Cloudflare
-www.ebay.com does not use Cloudflare
-realsite.com does use Cloudflare
+[!] google.de does not use Cloudflare
+[!] abc.xyz does not use Cloudflare
+[!] www.ebay.com does not use Cloudflare
+[*] realsite.com does use Cloudflare
 ```
 
 ## Contributing

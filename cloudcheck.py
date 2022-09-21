@@ -74,8 +74,8 @@ def uses_cloudflare(domain):
 
 for url in urls:
     if uses_cloudflare(url):
-        print(f'{url} uses Cloudflare')
+        print(f'[*] {url} uses Cloudflare')
         if args.output:
             open('cloudflare.txt', 'a+').write(f'{url}\n')
     else:
-        print(f'{url} does not use Cloudflare')
+        print(f'[!] {url} does not use Cloudflare')
