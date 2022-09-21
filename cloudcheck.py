@@ -1,7 +1,7 @@
 import requests, ipaddress, dns.resolver, argparse, sys
 from urllib.parse import urlparse
 
-parser = argparse.ArgumentParser(description='Check if a given server / or list of servers uses the Cloudflare service.')
+parser = argparse.ArgumentParser(description='Check if a given server / or list of servers uses the cloudflare service.')
 parser.add_argument('-u', '--url', type=str, help='The domain to check')
 parser.add_argument('-f', '--file', help='Load a list of domains from a file.')
 parser.add_argument('-o', '--output', help='Output the websites using cloudflare to a file.', action='store_true')
@@ -27,7 +27,7 @@ def get_cloudflare_ranges():
         r = requests.get('https://www.cloudflare.com/ips-v4')
         return r.text.split('\n')
     except requests.exceptions.RequestException:
-        print('Failed to retrieve Cloudflare IP ranges - using a default (possibly outdated) list')
+        print('Failed to retrieve cloudflare IP ranges - using a default (possibly outdated) list')
         fallback = [
         "103.21.244.0/22",
         "103.22.200.0/22",
@@ -74,8 +74,8 @@ def uses_cloudflare(domain):
 
 for url in urls:
     if uses_cloudflare(url):
-        print(f'[*] {url} uses Cloudflare')
+        print(f'[*] {url} uses cloudflare')
         if args.output:
             open('cloudflare.txt', 'a+').write(f'{url}\n')
     else:
-        print(f'[!] {url} does not use Cloudflare')
+        print(f'[!] {url} does not use cloudflare')

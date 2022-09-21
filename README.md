@@ -32,7 +32,7 @@ Execute the `cloudcheck.py`
 
 usage: cloudcheck.py [-h] [-u URL] [-f FILE] [-o]
 
-Check if a given server / or list of servers uses the Cloudflare service.
+Check if a given server / or list of servers uses the cloudflare service.
 
 options:
   -h, --help            show this help message and exit
@@ -52,7 +52,7 @@ The program will automatically remove anything before or after the URL, so `http
 ```bash
 > python cloudcheck.py -u google.de
 
-[!] google.de does not use Cloudflare
+[!] google.de does not use cloudflare
 ```
 
 ### Example with a file:
@@ -61,10 +61,10 @@ The file has to be in a readable format (preferred `.txt`) and the websites need
 ```bash
 > python cloudcheck.py -f websites.txt
 
-[!] google.de does not use Cloudflare
-[!] abc.xyz does not use Cloudflare
-[!] www.ebay.com does not use Cloudflare
-[*] realsite.com uses Cloudflare
+[!] google.de does not use cloudflare
+[!] abc.xyz does not use cloudflare
+[!] www.ebay.com does not use cloudflare
+[*] realsite.com uses cloudflare
 ```
 
 ## Contributing
