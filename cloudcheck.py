@@ -4,6 +4,7 @@ from urllib.parse import urlparse
 parser = argparse.ArgumentParser(description='Check if a given server / or list of servers uses the Cloudflare service.')
 parser.add_argument('-u', '--url', type=str, help='The domain to check')
 parser.add_argument('-f', '--file', help='Load a list of domains from a file.')
+parser.add_argument('-o', '--output', help='Output the websites using cloudflare to a file.', action='store_true')
 args = parser.parse_args(args=None if sys.argv[1:] else ['--help'])
 
 urls = []
@@ -74,5 +75,7 @@ def uses_cloudflare(domain):
 for url in urls:
     if uses_cloudflare(url):
         print(f'{url} uses Cloudflare')
+        if args.output:
+            open('cloudflare.txt', 'a+').write(f'{url}\n')
     else:
         print(f'{url} does not use Cloudflare')
