@@ -28,10 +28,22 @@ Open your download location and execute the script from a console window.
 Execute the `cloudcheck.py`
 
 ```bash
-> python cloudcheck.py [-h] [-u URL] [-f FILE]
+> python cloudcheck.py
+
+usage: cloudcheck.py [-h] [-u URL] [-f FILE] [-o]
+
+Check if a given server / or list of servers uses the Cloudflare service.
+
+options:
+  -h, --help            show this help message and exit
+  -u URL, --url URL     The domain to check
+  -f FILE, --file FILE  Load a list of domains from a file.
+  -o, --output          Output the websites using cloudflare to a file.
 ```
+
 `URL` defines the website adress that you want to scan.\
-`FILE` defines a file that you want to read and check if the given websites use cloudflare.
+`FILE` defines a file that you want to read and check if the given websites use cloudflare.\
+`--output` outputs websites that use cloudflare to `cloudflare.txt`
 
 The program will automatically remove anything before or after the URL, so `https://google.de/search?=abc` would become `google.de`
 
@@ -39,11 +51,8 @@ The program will automatically remove anything before or after the URL, so `http
 
 ```bash
 > python cloudcheck.py -u google.de
-```
-### output:
 
-```bash
-> google.de does not use Cloudflare
+google.de does not use Cloudflare
 ```
 
 ### Example with a file:
@@ -51,14 +60,11 @@ The file has to be in a readable format (preferred `.txt`) and the websites need
 
 ```bash
 > python cloudcheck.py -f websites.txt
-```
-### output:
 
-```bash
-> google.de does not use Cloudflare
-> abc.xyz does not use Cloudflare
-> www.ebay.com does not use Cloudflare
-> realsite.com does use Cloudflare
+google.de does not use Cloudflare
+abc.xyz does not use Cloudflare
+www.ebay.com does not use Cloudflare
+realsite.com does use Cloudflare
 ```
 
 ## Contributing
