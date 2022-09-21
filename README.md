@@ -64,7 +64,7 @@ The file has to be in a readable format (preferred `.txt`) and the websites need
 [!] google.de does not use Cloudflare
 [!] abc.xyz does not use Cloudflare
 [!] www.ebay.com does not use Cloudflare
-[*] realsite.com does use Cloudflare
+[*] realsite.com uses Cloudflare
 ```
 
 ## Contributing
