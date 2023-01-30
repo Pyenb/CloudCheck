@@ -18,7 +18,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the pac
 Use `git clone` to download the repository to your local machine:
 
 ```bash
-> git clone https://github.com/Anonyvius/cloudcheck
+> git clone https://github.com/Pyenb/cloudcheck
 ```
 
 ## Usage
